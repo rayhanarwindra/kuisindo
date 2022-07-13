@@ -1,0 +1,112 @@
+[
+  {
+    "question": "Siapa presiden pertama Indonesia?",
+    "options": [
+      {
+        "letter": "A",
+        "answer": "Habibie"
+      },
+      {
+        "letter": "B",
+        "answer": "Joko Widodo"
+      },
+      {
+        "letter": "C",
+        "answer": "Soeharto"
+      },
+      {
+        "letter": "D",
+        "answer": "Soekarno"
+      }
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "question": "Pada tahun berapa Indonesia merdeka?",
+    "options": [
+      {
+        "letter": "A",
+        "answer": "1947"
+      },
+      {
+        "letter": "B",
+        "answer": "1946"
+      },
+      {
+        "letter": "C",
+        "answer": "1945"
+      },
+      {
+        "letter": "D",
+        "answer": "1948"
+      }
+    ],
+    "correctAnswer": "C"
+  },
+  {
+    "question": "Di mana ibu kota Indonesia?",
+    "options": [
+      {
+        "letter": "A",
+        "answer": "Jakarta"
+      },
+      {
+        "letter": "B",
+        "answer": "Yogyakarta"
+      },
+      {
+        "letter": "C",
+        "answer": "Medan"
+      },
+      {
+        "letter": "D",
+        "answer": "Denpasar"
+      }
+    ],
+    "correctAnswer": "A"
+  },
+  {
+    "question": "Apa nama jalan tol pertama di Indonesia?",
+    "options": [
+      {
+        "letter": "A",
+        "answer": "Jakarta-Tangerang"
+      },
+      {
+        "letter": "B",
+        "answer": "Jakarta-Cikampek"
+      },
+      {
+        "letter": "C",
+        "answer": "JORR"
+      },
+      {
+        "letter": "D",
+        "answer": "Jagorawi"
+      }
+    ],
+    "correctAnswer": "D"
+  },
+  {
+    "question": "Apa mata uang Indonesia?",
+    "options": [
+      {
+        "letter": "A",
+        "answer": "Rupee"
+      },
+      {
+        "letter": "B",
+        "answer": "Ringgit"
+      },
+      {
+        "letter": "C",
+        "answer": "Rupiah"
+      },
+      {
+        "letter": "D",
+        "answer": "Real"
+      }
+    ],
+    "correctAnswer": "C"
+  }
+]
