@@ -4,8 +4,6 @@
   </nav>
 </template>
 
-<script></script>
-
 <style lang="scss" scoped>
 .navbar {
   padding: 1.5% 5%;

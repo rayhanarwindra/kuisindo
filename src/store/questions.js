@@ -12,6 +12,4 @@ export default {
       return state.questions.length;
     },
   },
-  mutations: {},
-  actions: {},
 };

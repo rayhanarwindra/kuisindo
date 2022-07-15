@@ -1,7 +1,7 @@
 <template>
-  <div class="question">
+  <QuizContainer>
     <div class="question__title">
-      <p>Question {{ questionNo }}</p>
+      <p>Pertanyaan {{ questionNo }}</p>
       <h1>{{ question.question }}</h1>
     </div>
     <div class="question__options">
@@ -11,11 +11,12 @@
         v-model="pickedAnswer"
         :label="option.letter"
         border
-        >{{ `${option.letter}: ${option.answer}` }}</el-radio
       >
+        {{ `${option.letter}: ${option.answer}` }}
+      </el-radio>
     </div>
     <router-link
-      v-if="$route.params.number < getNumberofQuestion"
+      v-if="questionNo < getNumberofQuestion"
       :to="{
         name: 'question',
         params: { number: parseInt(this.$route.params.number) + 1 },
@@ -39,25 +40,56 @@
       </el-button>
     </router-link>
     <p class="question__points">Points: {{ getPoints }}</p>
-  </div>
+  </QuizContainer>
 </template>
 
-<style scoped lang="scss">
-.question {
-  background: white;
-  margin: auto;
-  width: 60vw;
-  height: fit-content;
-  padding: 1% 5%;
-  position: absolute;
-  top: 40px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+<script>
+import { mapGetters, mapActions } from "vuex";
+import QuizContainer from "@/components/QuizContainer.vue";
 
+export default {
+  data() {
+    return {
+      question: {},
+      questionNo: 1,
+      pickedAnswer: "",
+    };
+  },
+  methods: {
+    ...mapActions(["incrementPoint"]),
+    submitAnswer: function () {
+      if (this.pickedAnswer === this.question.correctAnswer) {
+        this.incrementPoint();
+      }
+      this.pickedAnswer = "";
+    },
+  },
+  mounted() {
+    this.question = this.getQuestion(this.questionNo);
+  },
+  updated() {
+    this.questionNo = this.$route.params.number;
+    this.question = this.getQuestion(this.questionNo);
+  },
+  computed: {
+    ...mapGetters(["getQuestion", "getNumberofQuestion", "getPoints"]),
+  },
+  components: { QuizContainer },
+};
+</script>
+
+<style scoped lang="scss">
 .question__options {
   margin-top: 50px;
+}
+
+::v-deep .el-radio__input.is-checked .el-radio__inner {
+  background: red;
+  border-color: red;
+}
+
+::v-deep .el-radio__input.is-checked + .el-radio__label {
+  color: red;
 }
 
 .el-radio.is-bordered {
@@ -97,35 +129,3 @@
   }
 }
 </style>
-
-<script>
-import { mapGetters, mapActions } from "vuex";
-export default {
-  data() {
-    return {
-      question: {},
-      questionNo: 1,
-      pickedAnswer: "",
-    };
-  },
-  methods: {
-    ...mapActions(["incrementPoint"]),
-    submitAnswer: function () {
-      if (this.pickedAnswer === this.question.correctAnswer) {
-        this.incrementPoint();
-      }
-      this.pickedAnswer = "";
-    },
-  },
-  mounted() {
-    this.question = this.getQuestion(this.$route.params.number);
-  },
-  updated() {
-    this.questionNo = this.$route.params.number;
-    this.question = this.getQuestion(this.$route.params.number);
-  },
-  computed: {
-    ...mapGetters(["getQuestion", "getNumberofQuestion", "getPoints"]),
-  },
-};
-</script>

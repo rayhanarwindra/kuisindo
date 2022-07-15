@@ -1,14 +1,19 @@
 <template>
-  <div class="container">
+  <div class="home">
     <el-row>
-      <el-col class="container__text" :span="width < 768 ? 24 : 12">
+      <el-col class="home__text" :span="width < 768 ? 24 : 12">
         <h1>Uji pengetahuan kamu tentang Indonesia!</h1>
         <router-link to="question/1">
           <el-button @click="resetPoints">Mulai Kuis</el-button>
         </router-link>
       </el-col>
       <el-col :span="width < 768 ? 0 : 12">
-        <img class="container__image" src="../assets/banner.png" alt="banner" />
+        <img
+          v-show="width > 768"
+          class="home__image"
+          src="../assets/banner.png"
+          alt="banner"
+        />
       </el-col>
     </el-row>
   </div>
@@ -42,13 +47,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.home {
   padding: 1.4% 5%;
   height: 92.5vh;
   background: white;
 }
 
-.container__text {
+.home__text {
   margin: 13% 0;
   color: black;
 
@@ -62,13 +67,9 @@ export default {
   }
 }
 
-.container__image {
+.home__image {
   max-width: 100%;
   height: auto;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
 .el-button {
