@@ -1,5 +1,5 @@
 <template>
-  <QuizContainer>
+  <QuizContainer :width="'50vw'">
     <div class="question__title">
       <p>Pertanyaan {{ questionNo }}</p>
       <h1>{{ question.question }}</h1>
@@ -74,6 +74,7 @@ export default {
   computed: {
     ...mapGetters(["getQuestion", "getNumberofQuestion", "getPoints"]),
   },
+
   components: { QuizContainer },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <QuizContainer>
+  <QuizContainer :width="'25vw'">
     <div class="result">
       <h1>Nilai: {{ getPoints }}</h1>
       <router-link to="/">

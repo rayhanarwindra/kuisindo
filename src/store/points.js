@@ -16,11 +16,11 @@ export default {
     },
   },
   actions: {
-    incrementPoint(context) {
-      context.commit("INCREMENT");
+    incrementPoint({ commit }) {
+      commit("INCREMENT");
     },
-    resetPoints(context) {
-      context.commit("RESET");
+    resetPoints({ commit }) {
+      commit("RESET");
     },
   },
 };

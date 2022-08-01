@@ -1,14 +1,19 @@
 <template>
-  <div class="container">
+  <div :style="{ width: width }" class="container">
     <slot></slot>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["width"],
+};
+</script>
 
 <style lang="scss" scoped>
 .container {
   background: white;
   margin: auto;
-  width: 50vw;
   height: fit-content;
   padding: 1% 5%;
   position: absolute;
